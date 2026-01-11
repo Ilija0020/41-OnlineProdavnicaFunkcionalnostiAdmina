@@ -10,6 +10,7 @@
     <h1>Artikli</h1>
     <hr>
     <div class="container">
+        <div class="leviKontejner">
         <table id="artikliTabela">
             <thead></thead>
                 <tr>
@@ -22,8 +23,10 @@
                     
             </tbody>
         </table>
-    </div>
+   
     <div id="detaljiArtikla"></div>
+    </div>
+    <div class="desniKontejner">
         <form action="#" id="forma">
             <label for="naziv">Naziv:</label>
             <input type="text" id="naziv" name="naziv" required>
@@ -34,8 +37,10 @@
             <label for="opis">Opis:</label>
             <input type="text" id="opis" name="opis" required>
             <br>
-        </form>
         <button type="button" id="submitBtn">Dodaj</button>
+        </form>
+    </div>     
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ class Artikal {
 
 let artikli = [];
 
-function initializeArtikal() {
+function initializeProduct() {
   artikli = [
     new Artikal(
       "Monitor",
@@ -18,11 +18,13 @@ function initializeArtikal() {
     new Artikal("TV", 650, "Najnoviji model sa vrhunskim karakteristikama."),
     new Artikal("Mis", 20, "Ergonomski mis za sve vaše potrebe."),
   ];
-  createArtikalRows();
+  createProductRows();
+  handleFormSubmission();
 }
 
-function createArtikalRows() {
+function createProductRows() {
   let table = document.querySelector("#artikliTabela-body");
+  table.innerHTML = "";
   for (let i = 0; i < artikli.length; i++) {
     let tr = document.createElement("tr");
     let id = document.createElement("td");
@@ -37,20 +39,40 @@ function createArtikalRows() {
     tr.appendChild(cena);
 
     tr.addEventListener("click", function () {
-      prikaziDetaljaArtikla(artikli[i]);
+      displayProductDetails(artikli[i]);
     });
 
     table.appendChild(tr);
   }
 }
 
-document.addEventListener("DOMContentLoaded", initializeArtikal);
+document.addEventListener("DOMContentLoaded", initializeProduct);
 
-function prikaziDetaljaArtikla(artikal) {
+function displayProductDetails(artikal) {
   let detalji = document.querySelector("#detaljiArtikla");
-  detalji.innerHTML = "Naziv: " + artikal.naziv + "<br>" +
-    "Cena: " + artikal.cena + "<br>" +
-    "Opis: " + artikal.opis;
-  
+  detalji.innerHTML = `
+      <p>Naziv: ${artikal.naziv}</p>
+      <p>Cena: ${artikal.cena}</p>
+      <p>Opis: ${artikal.opis}</p> `;
+
   detalji.style.display = "block";
+}
+
+function handleFormSubmission() {
+  let submitBtn = document.querySelector("#submitBtn");
+  submitBtn.addEventListener("click", function () {
+    const forma = document.querySelector("#forma");
+    const formData = new FormData(forma);
+
+    const naziv = formData.get("naziv");
+    const cena = formData.get("cena");
+    const opis = formData.get("opis");
+
+    const noviArtikal = new Artikal(naziv, cena, opis);
+    artikli.push(noviArtikal);
+
+    createProductRows();
+
+    forma.reset();
+  });
 }

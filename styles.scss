@@ -1,38 +1,78 @@
-$border-color: black;
-$background-color: #f2f2f2;
-$gap-size: 20px;
-$padding-size: 8px;
-
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+    h1 {
+        padding: 30px 0 0px 40px;
+        margin-bottom: 10px;
+    }
+    hr {
+        margin: 0px 40px 10px 40px;
+    }
+}
 .container {
     display: flex;
-    justify-content: space-between;
-    gap: $gap-size;
-}
+    gap: 20px;
+    padding: 0 40px 40px 40px;
 
-table {
-    width: 45%;
+}
+#artikliTabela {
+    width: 300px;
+    height: 200px;
     border-collapse: collapse;
-    margin: $gap-size 0;
+    margin-bottom: 20px;
 
     th, td {
-        border: 1px solid $border-color;
-        padding: $padding-size;
+        border: 1px solid black;
+        padding: 8px;
         text-align: left;
     }
 
     th {
-        background-color: $background-color;
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
     }
 }
-
-button {
-    cursor: pointer;
-}
-
 #detaljiArtikla {
-    border: 1px solid $border-color;
-    padding: 20px 10px 50px 5px;
-    width: 45%;
-    box-sizing: border-box;
+    width: 280px;
+    height: 180px;
+    border: 1px solid black;
     display: none;
+    padding: 10px;
+}
+#forma {
+    border: 1px solid black;
+    padding: 25px;
+    width: 250px;
+    height: 150px;
+
+    label {
+        display: inline-block;
+        width: 70px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input {
+        padding: 10px 0 0 5px;
+        border: none;
+        border-bottom: black 1px solid;
+        width: 60%
+    }
+
+    button, #submitBtn {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block; 
+    margin-left: auto;
+    }
 }
