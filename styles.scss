@@ -28,3 +28,11 @@ table {
 button {
     cursor: pointer;
 }
+
+#detaljiArtikla {
+    border: 1px solid $border-color;
+    padding: 20px 10px 50px 5px;
+    width: 45%;
+    box-sizing: border-box;
+    display: none;
+}
