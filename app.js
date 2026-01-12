@@ -9,6 +9,10 @@ class Artikal {
 let artikli = [];
 
 function initializeProduct() {
+  const sacuvaniArtikli = localStorage.getItem("artikli");
+  if (sacuvaniArtikli) {
+    artikli = JSON.parse(sacuvaniArtikli);
+  } else {
   artikli = [
     new Artikal(
       "Monitor",
@@ -18,6 +22,8 @@ function initializeProduct() {
     new Artikal("TV", 650, "Najnoviji model sa vrhunskim karakteristikama."),
     new Artikal("Mis", 20, "Ergonomski mis za sve vaše potrebe."),
   ];
+  localStorage.setItem("artikli", JSON.stringify(artikli));
+  }
   createProductRows();
   handleFormSubmission();
 }
@@ -70,6 +76,8 @@ function handleFormSubmission() {
 
     const noviArtikal = new Artikal(naziv, cena, opis);
     artikli.push(noviArtikal);
+
+    localStorage.setItem("artikli", JSON.stringify(artikli));
 
     createProductRows();
 
