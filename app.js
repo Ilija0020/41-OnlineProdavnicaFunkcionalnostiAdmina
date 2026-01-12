@@ -74,6 +74,13 @@ function handleFormSubmission() {
     const cena = formData.get("cena");
     const opis = formData.get("opis");
 
+    for (let i=0; i<artikli.length; i++) {
+      if (artikli[i].naziv === naziv) {
+        alert("Artikal sa ovim nazivom već postoji!");
+        return;
+      }
+    }
+
     const noviArtikal = new Artikal(naziv, cena, opis);
     artikli.push(noviArtikal);
 
